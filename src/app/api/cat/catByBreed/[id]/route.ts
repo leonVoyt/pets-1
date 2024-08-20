@@ -1,8 +1,7 @@
 import axios from "axios";
-import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextApiRequest, param: any) {
+export async function GET(req: NextRequest, param: any) {
   const { id } = param.params;
   try {
     if (req.method !== "GET") {

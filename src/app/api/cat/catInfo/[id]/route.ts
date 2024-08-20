@@ -1,11 +1,10 @@
 import { CatImage } from "@/app/types/cat/type";
 import axios from "axios";
-import { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 // API route handler
 export async function GET(
-  req: NextApiRequest,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ): Promise<NextResponse> {
   try {

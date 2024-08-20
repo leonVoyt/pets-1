@@ -1,9 +1,8 @@
 import { DogImage } from "@/app/types/dog/type";
 import axios from "axios";
-import { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextApiRequest, param: any) {
+export async function GET(req: NextRequest, param: any) {
   try {
     if (req.method !== "GET") return;
     const { id } = param.params;

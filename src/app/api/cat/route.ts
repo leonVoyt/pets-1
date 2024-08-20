@@ -1,12 +1,9 @@
 import { CatImage, DetailedCat } from "@/app/types/cat/type";
 import axios from "axios";
-import { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
-
-// Define TypeScript interfaces
+import { NextRequest, NextResponse } from "next/server";
 
 // Function to fetch detailed cat data
-export const getCats = async (): Promise<DetailedCat[]> => {
+const fetchCats = async (): Promise<DetailedCat[]> => {
   try {
     const response = await axios.get<CatImage[]>(
       "https://api.thecatapi.com/v1/images/search?limit=10&order=ASC&has_breeds=1"
@@ -49,10 +46,7 @@ export const getCats = async (): Promise<DetailedCat[]> => {
 };
 
 // API route handler
-export async function GET(
-  req: NextApiRequest,
-  context: any
-): Promise<NextResponse> {
+export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
     if (req.method !== "GET") {
       return NextResponse.json(
@@ -61,7 +55,7 @@ export async function GET(
       );
     }
 
-    const result = await getCats();
+    const result = await fetchCats();
     return NextResponse.json({ result });
   } catch (err) {
     console.log(err);
