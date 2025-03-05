@@ -111,6 +111,7 @@ export default function Home() {
           onClick={() => setShowSuggestions(true)}
           className="mb-8 p-2 border border-gray-300 rounded w-full"
         />
+
         {showSuggestions && (
           <ul
             className="absolute top-full left-0 w-full h-60 overflow-auto bg-white border border-gray-300 rounded shadow-lg z-10"
